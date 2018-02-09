@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileHolder } from "angular2-image-upload";
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  afterUploadMessage;
+  responseState;
   state;
   show(){
     this.state = 'active';
@@ -14,7 +17,17 @@ export class AppComponent implements OnInit {
   hide(){
     this.state = 'inactive';
   }
+  public onUploadFinished(file: FileHolder) {
+    console.log(file.serverResponse);
+  }
 
+  public onRemoved(file: FileHolder) {
+    // do some stuff with the removed file.
+  }
+
+  public onUploadStateChanged(state: boolean) {
+    console.log(state);
+  }
 
   menuConfig: any = {
     "animation": "collapse",

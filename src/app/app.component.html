@@ -4,8 +4,12 @@
 
   <div class="row">
     <div class="col-sm-4">
-      <image-upload></image-upload>
+      <image-upload url="http://brainwpdev1.co.nf/api/screen/uplo.php" 
+        (removed)="onRemoved($event)"
+        (uploadFinished)="onUploadFinished($event)"
+        (uploadStateChanged)="onUploadStateChanged($event)"
+        ></image-upload>
     </div>
-    <div class="col-sm-4">test</div>
+    <div class="col-sm-4">{{afterUploadMessage}}</div>
   </div>
 </div>
